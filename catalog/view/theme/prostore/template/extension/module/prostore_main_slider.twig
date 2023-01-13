@@ -1,6 +1,6 @@
 <!-- Intro :: Start-->
 <div class="intro">
-	<div class="container-fluid">
+	<div class="">
 		<div class="row">
 			<div class="{% if (isrightimage == 1) %}col-xl-8{% else %}col-xl-12{% endif %}">
 				<div class="intro__swiper">
@@ -9,33 +9,32 @@
 						{% for i,banner1 in banners %} 
 						{% for banner in banner1 %}
 						{% if (banner['position'] == 1) %}
-							<div class="swiper-slide">
-								{% if img_link %}<a href="{{ banner['link'] }}" class="intro__item">{% else %}<div class="intro__item">{% endif %}
-									<div class="intro__item-desc {% if banner['text_color'] == '1' %}intro__item-desc--dark{% endif %}">
-										{% if (banner['title']) %}
-										<ul class="intro__item-info">
-											<li>{{ banner['title'] }}</li>
-										</ul>
-										{% endif %}
-										{% if (banner['slider_text']) %}
-										<span class="h2 intro__item-title">{{ banner['slider_text'] }}</span>
-										{% endif %}
-										{% if (banner['btn_text']) %}
-											{% if img_link %}
-												<p class="intro__item-price">{{ banner['btn_text'] }}</p>
-											{% else %}
-												<a href="{{ banner['link'] }}" class="intro__item-price">{{ banner['btn_text'] }}</a>
-											{% endif %}
-										{% endif %}
+							<div class="swiper-slide" >
+								{% if img_link %}<a href="{{ banner['link'] }}" style="background: url('{{banner['image']}}') no-repeat; background-size: cover; background-position: bottom;" class="intro__item">{% else %}<div class="intro__item">{% endif %}
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-12">
+												<div class="intro__item-desc {% if banner['text_color'] == '1' %}intro__item-desc--dark{% endif %}">
+													{% if (banner['title']) %}
+													<ul class="intro__item-info">
+														<li>{{ banner['title'] }}</li>
+													</ul>
+													{% endif %}
+													{% if (banner['slider_text']) %}
+													<span class="h2 intro__item-title">{{ banner['slider_text'] }}</span>
+													{% endif %}
+													{% if (banner['btn_text']) %}
+														{% if img_link %}
+															<p class="intro__item-price">{{ banner['btn_text'] }}</p>
+														{% else %}
+															<a href="{{ banner['link'] }}" class="intro__item-price">{{ banner['btn_text'] }}</a>
+														{% endif %}
+													{% endif %}
+												</div>
+											</div>
+										</div>
 									</div>
-									<picture class="intro__item-{{ banner['full'] ? 'cover' : 'image' }}">
-										{% if (banner['image2']) %}
-										<source srcset="{{ banner['image2'] }}" media="(max-width: 767px)">
-										{% endif %}
-										<source srcset="{{ banner['image'] }}">
-										<img src="{{ banner['image'] }}" alt="{{ banner['title'] }}" width="{{ banner['width_pc'] }}" height="{{ banner['height_pc'] }}">
-									</picture>
-								{% if img_link %}</a>{% else %}</div>{% endif %}
+ 						{% if img_link %}</a>{% else %}</div>{% endif %}
 							</div>
 						{% endif %}
 						{% endfor %}

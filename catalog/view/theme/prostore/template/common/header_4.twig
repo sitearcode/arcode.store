@@ -1,7 +1,7 @@
 <div class="header__desktop">
 	<div class="header__row header__row--01">
 		<div class="header__group header__group--info_call">
-			{% if (header_navs is not empty) %}
+<!-- 			{% if (header_navs is not empty) %}
 			<div class="header__info">
 				<ul class="header__info-menu">
 				  {% for key,header_nav in header_navs %} 
@@ -13,18 +13,21 @@
 				  {% endfor %} 
 				</ul>
 			</div>
-			{% endif %}
+			{% endif %} -->
 			{% if prostore_phones_main %}
 			<div class="header__call">
-				<button class="header__call-btn">
+				{% for key, prostore_phone in prostore_phones %}
+					<p class="header__call-link"> {{ prostore_phone[language_id] }}</p>
+				{% endfor %}
+<!-- 				<button class="header__call-btn">
 					<mark>{{ text_prostore_support }}</mark> {{ prostore_phones_main[language_id] }} <svg class="icon-arrow-down"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-arrow-down"></use>
 					</svg>
-				</button>
-				<div class="header__call-offcanvas">
+				</button> -->
+<!-- 				<div class="header__call-offcanvas">
 					<ul class="header__call-menu">
 						{% for key, prostore_phone in prostore_phones %}
 						<li>
-							<a class="header__call-link" href="tel:{{ prostore_phone[language_id]|replace({' ': '', '-': '', '(': '', ')': ''}) }}"> {{ prostore_phone[language_id] }}</a>
+							<a class="header__call-link" href="tel:{{ prostore_phones[language_id]|replace({' ': '', '-': '', '(': '', ')': ''}) }}"> {{ prostore_phones[language_id] }}</a>
 						</li>
 						{% endfor %}
 						{% if callback_status %}
@@ -34,7 +37,7 @@
 						{% endif %}
 					</ul>
 					<div class="fancybox-is-hidden popup" id="callback">{{ callback }}</div>
-				</div>
+				</div> -->
 			</div>
 			{% endif %}
 		</div>
