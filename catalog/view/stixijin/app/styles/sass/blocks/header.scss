@@ -168,3 +168,38 @@ a, button, p{
 	margin: 0;
 	padding: 0;
 }
+
+.c__item {
+	margin-bottom: 20px;
+}
+
+.c-item__img {
+	height: 100%;
+	width: 100%;
+}
+
+.swiper-intro .swiper-pagination {
+	position: absolute;
+	align-items: flex-start;
+	right: auto;
+	left: auto;
+	justify-content: flex-start;
+	bottom: 56px;
+	margin-left: 40px;
+}
+
+.swiper-intro .swiper-pagination-bullet {
+	background: transparent;
+	border: 2px solid #000;
+}
+
+.swiper-pagination-bullet {
+	height: 11px;
+	width: 11px;
+	border-radius: 360px;
+
+}
+
+.swiper-intro .swiper-pagination-bullet-active {
+	background: #000;
+}

@@ -53,14 +53,16 @@
 								</svg>
 							</button>
 						</div>
-						<div class="swiper-pagination js-swiper-intro-pagination">
-						{% for i,banner1 in banners %} 
-						{% for banner in banner1 %}
-						{% if (banner['position'] == 1) %}
-							<div class="swiper-pagination-bullet"></div>
-						{% endif %}
-						{% endfor %}
-						{% endfor %}
+						<div class="container-fluid">
+							<div class="swiper-pagination js-swiper-intro-pagination">
+								{% for i,banner1 in banners %} 
+								{% for banner in banner1 %}
+								{% if (banner['position'] == 1) %}
+									<div class="swiper-pagination-bullet"></div>
+								{% endif %}
+								{% endfor %}
+								{% endfor %}
+								</div>
 						</div>
 					</div>
 				</div>

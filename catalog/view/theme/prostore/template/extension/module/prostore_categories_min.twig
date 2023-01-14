@@ -1,4 +1,25 @@
 	<!-- Categories :: Start-->
+
+<div class="categories">
+	<div class="container-fluid">
+		<div class="row">
+			{% for i,banner1 in banners %}
+			{% for banner in banner1 %}
+				<div class="col col-xl-6">
+					<div class="c__item">
+
+						<img class="c-item__img" src="{{ banner.image }}" alt="{{ category.name }}" {% if lazyload %}loading="lazy"{% endif %}>
+
+					</div>
+				</div>
+			{% endfor %}
+			{% endfor %}
+		</div>
+
+	</div>
+</div>
+<!-- Categories :: End-->
+
 <div class="categories">
 	<div class="container-fluid">
 		<span class="h2 categories__title">{% if title %}{{ title }}{% else %}{{ heading_title }}{% endif %}</span>
@@ -34,4 +55,4 @@
 			</div>
 		</div>
 	</div>
-</div><!-- Categories :: End-->
+</div>
