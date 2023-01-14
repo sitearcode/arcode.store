@@ -14,10 +14,17 @@
 				</ul>
 			</div>
 			{% endif %} -->
+			<div class="header__email">
+				<svg width="17" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.558 1H2.442C1.646 1 1 1.616 1 2.375v8.25C1 11.385 1.646 12 2.442 12h12.116c.796 0 1.442-.616 1.442-1.375v-8.25C16 1.615 15.354 1 14.558 1Z" stroke="#000" stroke-linecap="round" stroke-linejoin="round"/><path d="m6 4 2.5 2L11 4" stroke="#000" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				<a href="mailto:{{ shop_email }}">{{ shop_email }}</a>
+			</div>
 			{% if prostore_phones_main %}
 			<div class="header__call">
 				{% for key, prostore_phone in prostore_phones %}
-					<p class="header__call-link"> {{ prostore_phone[language_id] }}</p>
+					<div class="header__call-link">
+						<svg width="7" height="12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=".5" y=".5" width="6" height="11" rx="1.5" stroke="#000"/><path d="M2.5 3h2" stroke="#000" stroke-linecap="round"/></svg>
+						<a href="tel:{{prostore_phone[language_id]}}"> {{ prostore_phone[language_id] }}</a>
+					</div>
 				{% endfor %}
 <!-- 				<button class="header__call-btn">
 					<mark>{{ text_prostore_support }}</mark> {{ prostore_phones_main[language_id] }} <svg class="icon-arrow-down"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-arrow-down"></use>
@@ -102,29 +109,10 @@
 		<!-- MAIN NAV Horizontal  -->
 		
 		<div class="header__group">
-			<div class="header__search-compact">
-				<button class="header__search-compact-btn" href="#search-compact" data-fancybox>
-					<svg class="icon-search"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-search"></use>
-					</svg>
-				</button>
-				<div class="fancybox-is-hidden popup popup--search" id="search-compact">
-					<span class="popup__title">{{ text_header_search }}</span>
-					<div class="popup__form">
-						<div class="header__search">
-							<div class="header__search-control">
-								{{ search }}
-								<button type="button" class="header__search-btn js-search-btn">{{ text_search_button }}</button>
-							</div>
-							<div class="header__search-autocomplete"></div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="header__acc">
 				{% if logged %} 
 				<a class="header__acc-btn" href="{{ account }}" aria-label="{{ text_account }}">
-					<svg class="icon-acc-authorized"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-acc-authorized"></use>
-					</svg>
+					<svg width="22" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.981" cy="6" r="5.5" stroke="#1E1E1E"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20.827 21.088A11 11 0 0 0 10.982 15a11 11 0 0 0-9.846 6.088 1.12 1.12 0 0 0 .118 1.246c.29.378.813.666 1.439.666H19.27c.626 0 1.148-.288 1.438-.666a1.12 1.12 0 0 0 .118-1.246ZM2.693 24C.838 24-.587 22.3.242 20.641A12 12 0 0 1 10.982 14a12 12 0 0 1 10.74 6.641c.83 1.66-.596 3.359-2.452 3.359H2.693Z" fill="#1E1E1E"/></svg>
 				</a>
 				<div class="header__acc-offcanvas">
 					<ul class="header__acc-menu">
@@ -147,10 +135,28 @@
 				</div>
 				{% else %}
 				<a class="header__acc-btn" href="#signin" data-fancybox aria-label="{{ text_account }}">
-					<svg class="icon-acc"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-acc"></use>
+					<svg width="22" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.981" cy="6" r="5.5" stroke="#1E1E1E"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20.827 21.088A11 11 0 0 0 10.982 15a11 11 0 0 0-9.846 6.088 1.12 1.12 0 0 0 .118 1.246c.29.378.813.666 1.439.666H19.27c.626 0 1.148-.288 1.438-.666a1.12 1.12 0 0 0 .118-1.246ZM2.693 24C.838 24-.587 22.3.242 20.641A12 12 0 0 1 10.982 14a12 12 0 0 1 10.74 6.641c.83 1.66-.596 3.359-2.452 3.359H2.693Z" fill="#1E1E1E"/></svg>
 					</svg>
 				</a>
 				{% endif %}
+			</div>
+			{{ cart }}
+			<div class="header__search-compact">
+				<button class="header__search-compact-btn" href="#search-compact" data-fancybox>
+				<svg width="25" height="26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.55" cy="10.55" r="10.05" stroke="#1E1E1E"/><path d="M17.143 18.462 24 25.319" stroke="#1E1E1E" stroke-linecap="round"/></svg>
+				</button>
+				<div class="fancybox-is-hidden popup popup--search" id="search-compact">
+					<span class="popup__title">{{ text_header_search }}</span>
+					<div class="popup__form">
+						<div class="header__search">
+							<div class="header__search-control">
+								{{ search }}
+								<button type="button" class="header__search-btn js-search-btn">{{ text_search_button }}</button>
+							</div>
+							<div class="header__search-autocomplete"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="header__action">
 				<a class="header__action-btn" href="{{ text_compare_href }}" aria-label="{{ text_prostore_comp_head }}">
@@ -165,7 +171,6 @@
 					<mark class="header__action-counter js-wishlist-total">{% if wishlist_count > 0 %}{{ wishlist_count }}{% endif %}</mark>
 				</a>
 			</div>
-			{{ cart }}
 		</div>
 	</div>
 </div>

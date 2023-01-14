@@ -16,16 +16,19 @@
 											<div class="col-12">
 												<div class="intro__item-desc {% if banner['text_color'] == '1' %}intro__item-desc--dark{% endif %}">
 													{% if (banner['title']) %}
-													<ul class="intro__item-info">
+<!-- 													<ul class="intro__item-info">
 														<li>{{ banner['title'] }}</li>
-													</ul>
+													</ul> -->
 													{% endif %}
 													{% if (banner['slider_text']) %}
 													<span class="h2 intro__item-title">{{ banner['slider_text'] }}</span>
 													{% endif %}
 													{% if (banner['btn_text']) %}
 														{% if img_link %}
-															<p class="intro__item-price">{{ banner['btn_text'] }}</p>
+															<div class="intro__item-price">
+																<svg width="13" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m4 4 5 5-5 5" stroke="#E46515" stroke-linecap="round"/></svg>
+																<p>{{ banner['btn_text'] }}</p>
+															</div>
 														{% else %}
 															<a href="{{ banner['link'] }}" class="intro__item-price">{{ banner['btn_text'] }}</a>
 														{% endif %}

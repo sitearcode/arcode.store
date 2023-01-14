@@ -16,11 +16,31 @@ a, button, p{
 	gap: 18px;
 }
 
-.header__acc-link, .header__call-link, .header__currency-link{
+.header__acc-link, .header__call-link, .header__currency-link, .header__email{
 	border: none;
 	padding: 0;
 	margin: 0;
 	font-size: 12px;
+}
+
+.header__email {
+	margin-right: 64px;
+	display: flex;
+	align-items: center;
+}
+
+.header__call-link {
+	display: flex;
+	align-items: center;
+}
+
+.header__call-link svg{
+	margin-right: 8px;
+	margin-top: -2px;
+}
+
+.header__email svg {
+	margin-right: 8px	;
 }
 
 .header__acc-btn {
@@ -61,16 +81,8 @@ a, button, p{
 	display: none;	
 }
 
-.header__acc {
-	order: 1;
-}
-
-.icon-cart {
-	order: 2;
-}
-
-.header__search-compact {
-	order: 3;
+.header__cart-btn {
+	display: block;
 }
 
 .intro__item-image {
@@ -119,18 +131,28 @@ a, button, p{
 }
 
 .intro__item-price {
+	display: flex;
+	align-items: center;
 	background: transparent;
+	padding: 0;
+	height: auto;
+	margin: 0;
+}
+
+.intro__item-price p {
 	color: #E46515 !important;
 	font-size: 16px;
+	margin: 0;
 }
+
+.intro__item-price svg {
+	margin-top: 2px;
+	margin-right: 4px;
+} 
 
 .intro__item-title {
 	font-size: 56px;
 	line-height: 49px;
-}
-
-.intro__item-price {
-	padding: 0;
 }
 
 .intro__item-info {
@@ -140,9 +162,4 @@ a, button, p{
 
 .intro__item-desc, .intro__item-desc--dark {
 	margin-left: 40px;
-}
-
-.intro__item-price {
-	margin-top: 16px;
-	height: auto;
 }
