@@ -5,12 +5,14 @@
 		<div class="row">
 			{% for i,banner1 in banners %}
 			{% for banner in banner1 %}
-				<div class="col col-xl-6">
-					<div class="c__item">
+				<div class="co-12 col-md-6">
+					<a href="{{ banner.link }}" class="c__item">
+						<span class="c__item-title">{{ banner.title }}</span>
 
 						<img class="c-item__img" src="{{ banner.image }}" alt="{{ category.name }}" {% if lazyload %}loading="lazy"{% endif %}>
 
-					</div>
+						<svg class="c-item__arrow" width="13" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m4 4 5 5-5 5" stroke="#000" stroke-linecap="round"/></svg><span class="c__item-more">Подробнее</span>
+					</a>
 				</div>
 			{% endfor %}
 			{% endfor %}
@@ -20,7 +22,7 @@
 </div>
 <!-- Categories :: End-->
 
-<div class="categories">
+<!-- <div class="categories">
 	<div class="container-fluid">
 		<span class="h2 categories__title">{% if title %}{{ title }}{% else %}{{ heading_title }}{% endif %}</span>
 		<div class="categories__swiper">
@@ -55,4 +57,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
