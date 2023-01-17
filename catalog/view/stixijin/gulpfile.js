@@ -112,14 +112,14 @@ async function cleandist() {
 }
 
 function deploy() {
-	return src('dist/')
+	return src('../../../catalog/')
 		.pipe(rsync({
-			root: 'dist/',
-			hostname: 'username@yousite.com',
-			destination: 'yousite/public_html/',
+			root: '../../../catalog/',
+			hostname: 'sitearcode@sitearcode.temp.swtest.ru',
+			destination: 'public_html/catalog/',
 			// clean: true, // Mirror copy with file deletion
 			include: [/* '*.htaccess' */], // Included files to deploy,
-			exclude: [ '**/Thumbs.db', '**/*.DS_Store' ],
+			exclude: [ '**/Thumbs.db', '**/*.DS_Store', 'view/stixijin/node_modules/', 'view/stixijin/app/', 'view/stixijin/.gitignore'],
 			recursive: true,
 			archive: true,
 			silent: false,

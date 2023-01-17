@@ -259,4 +259,16 @@ a, button, p{
 
 .header__group {
 	justify-content: flex-end;
+	@media (min-width: 1200px) {
+		justify-content: flex-start;
+	}
+	
+}
+
+.header__currency {
+	display: none;
+}
+
+.intro .row .col-xl-4 .is-xl-visible {
+	display: none !important;
 }
