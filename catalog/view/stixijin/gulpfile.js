@@ -111,12 +111,44 @@ async function cleandist() {
 	await deleteAsync('dist/**/*', { force: true })
 }
 
-function deploy() {
+function deployFiles() {
 	return src('../../../catalog/')
 		.pipe(rsync({
 			root: '../../../catalog/',
 			hostname: 'sitearcode@sitearcode.temp.swtest.ru',
 			destination: 'public_html/catalog/',
+			// clean: true, // Mirror copy with file deletion
+			include: [/* '*.htaccess' */], // Included files to deploy,
+			exclude: [ '**/Thumbs.db', '**/*.DS_Store', 'view/stixijin/node_modules/', 'view/stixijin/app/', 'view/stixijin/.gitignore'],
+			recursive: true,
+			archive: true,
+			silent: false,
+			compress: true
+		}))
+}
+
+function deployImages() {
+	return src('../../../image/')
+		.pipe(rsync({
+			root: '../../../image/',
+			hostname: 'sitearcode@sitearcode.temp.swtest.ru',
+			destination: 'public_html/image/',
+			// clean: true, // Mirror copy with file deletion
+			include: [/* '*.htaccess' */], // Included files to deploy,
+			exclude: [ '**/Thumbs.db', '**/*.DS_Store', 'view/stixijin/node_modules/', 'view/stixijin/app/', 'view/stixijin/.gitignore'],
+			recursive: true,
+			archive: true,
+			silent: false,
+			compress: true
+		}))
+}
+
+function deployStorage() {
+	return src('../../../../storage/')
+		.pipe(rsync({
+			root: '../../../../storage/',
+			hostname: 'sitearcode@sitearcode.temp.swtest.ru',
+			destination: 'storage/',
 			// clean: true, // Mirror copy with file deletion
 			include: [/* '*.htaccess' */], // Included files to deploy,
 			exclude: [ '**/Thumbs.db', '**/*.DS_Store', 'view/stixijin/node_modules/', 'view/stixijin/app/', 'view/stixijin/.gitignore'],
@@ -134,8 +166,9 @@ function startwatch() {
 	watch(`app/**/*.{${fileswatch}}`, { usePolling: true }).on('change', browserSync.reload)
 }
 
-export { scripts, styles, images, deploy }
+export { scripts, styles, images }
 export let assets = series(scripts, styles, images)
 export let build = series(cleandist, images, scripts, styles, buildcopy)
+export let deploy = series(deployFiles, deployImages, deployStorage)
 
 export default series(scripts, styles, images, parallel(browsersync, startwatch))
