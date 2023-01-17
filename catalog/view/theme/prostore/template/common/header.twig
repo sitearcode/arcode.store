@@ -169,14 +169,13 @@ font-family: "{{fonts|replace({'+': ' '})}}", Arial, Helvetica, sans-serif;}
 									{% if logged %}
 									<div class="header__nav-acc">
 										<a class="header__nav-acc-btn" href="{{ account }}">
-											<svg class="icon-acc-authorized"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-acc-authorized"></use></svg>
+											<svg width="22" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.981" cy="6" r="5.5" stroke="#1E1E1E"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20.827 21.088A11 11 0 0 0 10.982 15a11 11 0 0 0-9.846 6.088 1.12 1.12 0 0 0 .118 1.246c.29.378.813.666 1.439.666H19.27c.626 0 1.148-.288 1.438-.666a1.12 1.12 0 0 0 .118-1.246ZM2.693 24C.838 24-.587 22.3.242 20.641A12 12 0 0 1 10.982 14a12 12 0 0 1 10.74 6.641c.83 1.66-.596 3.359-2.452 3.359H2.693Z" fill="#1E1E1E"/></svg>
 										</a>
 									</div>
 									{% else %}
 									<div class="header__nav-acc">
 										<a class="header__nav-acc-btn" href="#signin" data-fancybox>
-											<svg class="icon-acc"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-acc"></use>
-											</svg>
+											<svg width="22" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.981" cy="6" r="5.5" stroke="#1E1E1E"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20.827 21.088A11 11 0 0 0 10.982 15a11 11 0 0 0-9.846 6.088 1.12 1.12 0 0 0 .118 1.246c.29.378.813.666 1.439.666H19.27c.626 0 1.148-.288 1.438-.666a1.12 1.12 0 0 0 .118-1.246ZM2.693 24C.838 24-.587 22.3.242 20.641A12 12 0 0 1 10.982 14a12 12 0 0 1 10.74 6.641c.83 1.66-.596 3.359-2.452 3.359H2.693Z" fill="#1E1E1E"/></svg>
 										</a>
 									</div>
 									{% endif %}
@@ -195,9 +194,7 @@ font-family: "{{fonts|replace({'+': ' '})}}", Arial, Helvetica, sans-serif;}
 									</div>
 									<div class="header__nav-cart">
 										<a class="header__nav-cart-btn" href="{{ shopping_cart }}">
-											<svg class="icon-cart"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-cart"></use>
-											</svg>
-											<span class="header__nav-cart-total js-cart-total">{{ text_items }} </span>
+											<svg width="35" height="30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.484 10.757a1.63 1.63 0 0 1 1.15-.472h30.045a1.633 1.633 0 0 1 1.634 1.615l-.049.44-4.14 14.582a3.27 3.27 0 0 1-3.147 2.36H8.335a3.242 3.242 0 0 1-3.13-2.36L1.064 12.34A1.428 1.428 0 0 1 1 11.9a1.63 1.63 0 0 1 .484-1.143Z" stroke="#1E1E1E" stroke-linejoin="round"/><path d="m9.969 10.285 4.489-5.979c1.6-2.13 4.797-2.13 6.397 0l4.489 5.979" stroke="#1E1E1E" stroke-linejoin="round"/></svg>
 										</a>
 									</div>
 								</div>
@@ -282,33 +279,36 @@ font-family: "{{fonts|replace({'+': ' '})}}", Arial, Helvetica, sans-serif;}
 							{% endif %}
 						{% else %}
 							<div class="header__group">
-								<div class="header__search">
-									<button class="header__search-btn js-search-trigger">
-										<svg class="icon-search"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-search"></use>
-										</svg>
-									</button>
-									<div class="header__search-offcanvas"></div>
-								</div>
 								{% if logged %}
 								<div class="header__acc">
 									<a class="header__acc-btn" href="{{ account }}" aria-label="{{ text_account }}">
-										<svg class="icon-acc-authorized"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-acc-authorized"></use></svg>
+										<svg width="22" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.981" cy="6" r="5.5" stroke="#1E1E1E"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20.827 21.088A11 11 0 0 0 10.982 15a11 11 0 0 0-9.846 6.088 1.12 1.12 0 0 0 .118 1.246c.29.378.813.666 1.439.666H19.27c.626 0 1.148-.288 1.438-.666a1.12 1.12 0 0 0 .118-1.246ZM2.693 24C.838 24-.587 22.3.242 20.641A12 12 0 0 1 10.982 14a12 12 0 0 1 10.74 6.641c.83 1.66-.596 3.359-2.452 3.359H2.693Z" fill="#1E1E1E"/></svg>
 									</a>
 								</div>
 								{% else %}
 								<div class="header__acc">
 									<a class="header__acc-btn" href="#signin" data-fancybox aria-label="{{ text_account }}">
-										<svg class="icon-acc"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-acc"></use>
+										<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="10.9814" cy="6" r="5.5" stroke="#1E1E1E"/>
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M20.8271 21.0883C19.0215 17.4766 15.2899 15 10.9817 15C6.6734 15 2.94181 17.4766 1.13618 21.0883C0.90723 21.5462 0.981514 21.9787 1.25423 22.3345C1.54378 22.7123 2.06669 23 2.69278 23H19.2705C19.8966 23 20.4195 22.7123 20.7091 22.3345C20.9818 21.9787 21.0561 21.5462 20.8271 21.0883ZM2.69278 24C0.837661 24 -0.587822 22.3004 0.24173 20.6411C2.21018 16.7037 6.28016 14 10.9817 14C15.6832 14 19.7531 16.7037 21.7216 20.6411C22.5511 22.3004 21.1257 24 19.2705 24H2.69278Z" fill="#1E1E1E"/>
 										</svg>
 									</a>
 								</div>
 								{% endif %}
 								<div class="header__cart">
 									<a class="header__cart-btn" href="{{ shopping_cart }}">
-										<svg class="icon-cart"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-cart"></use>
+										<svg width="35" height="30" viewBox="0 0 35 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1.48373 10.7565C1.78972 10.4538 2.20307 10.2842 2.63369 10.2847H32.679C33.1096 10.2842 33.523 10.4538 33.829 10.7565C34.135 11.0591 34.3088 11.4703 34.3126 11.9005L34.2645 12.3404L30.1245 26.9224C29.9269 27.6034 29.5132 28.2017 28.9455 28.6273C28.3779 29.0529 27.6872 29.2827 26.9774 29.2821H8.33525C7.62688 29.2848 6.93714 29.0555 6.37165 28.6293C5.80616 28.2031 5.39608 27.6036 5.2042 26.9224L1.06416 12.3404C1.01997 12.198 0.998352 12.0495 1.0001 11.9005C1.0039 11.4703 1.17774 11.0591 1.48373 10.7565Z" stroke="#1E1E1E" stroke-linejoin="round"/>
+										<path d="M9.96875 10.2846L14.4575 4.30625C16.0576 2.17519 19.2549 2.17519 20.855 4.30625L25.3438 10.2846" stroke="#1E1E1E" stroke-linejoin="round"/>
 										</svg>
 										<span class="header__cart-counter js-cart-total">{{ text_items }}</span>
 									</a>
+								</div>
+								<div class="header__search">
+									<button class="header__search-btn js-search-trigger">
+											<svg width="25" height="26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.55" cy="10.55" r="10.05" stroke="#1E1E1E"/><path d="M17.143 18.462 24 25.319" stroke="#1E1E1E" stroke-linecap="round"/></svg>
+									</button>
+									<div class="header__search-offcanvas"></div>
 								</div>
 							</div>
 						{% endif %}
@@ -417,7 +417,10 @@ font-family: "{{fonts|replace({'+': ' '})}}", Arial, Helvetica, sans-serif;}
 					{% if logged %} 
 					<a class="header__sticky-btn" href="{{ account }}">
 						<span class="header__sticky-icon">
-							<svg class="icon-acc-authorized"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-acc-authorized"></use></svg>
+								<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="10.9814" cy="6" r="5.5" stroke="#1E1E1E"/>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M20.8271 21.0883C19.0215 17.4766 15.2899 15 10.9817 15C6.6734 15 2.94181 17.4766 1.13618 21.0883C0.90723 21.5462 0.981514 21.9787 1.25423 22.3345C1.54378 22.7123 2.06669 23 2.69278 23H19.2705C19.8966 23 20.4195 22.7123 20.7091 22.3345C20.9818 21.9787 21.0561 21.5462 20.8271 21.0883ZM2.69278 24C0.837661 24 -0.587822 22.3004 0.24173 20.6411C2.21018 16.7037 6.28016 14 10.9817 14C15.6832 14 19.7531 16.7037 21.7216 20.6411C22.5511 22.3004 21.1257 24 19.2705 24H2.69278Z" fill="#1E1E1E"/>
+								</svg>
 						</span>
 						<span class="header__sticky-text">{{ text_account_account }}</span>
 					</a>

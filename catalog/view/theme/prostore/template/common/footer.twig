@@ -172,23 +172,21 @@
 <!-- Footer v3 or v4 :: Start-->
 <footer class="footer footer--v{{ footer_type }}">
 	<div class="container-fluid">
-		<div class="footer__desc is-xl-hidden">
-			{% if (footer_t_logo or footer_logo) %}
-				{% if (footer_logo) %} 
-					<a class="footer__logo" {{ home == og_url ? '' : 'href="' ~ home ~'"' }}><img src="{{ footer_logo }}" title="{{ name }}" alt="{{ name }}"></a>
-				{% else %} 
-					<a class="footer__logo" {{ home == og_url ? '' : 'href="' ~ home ~'"' }}>{{ text_logo }}</a>
-				{% endif %} 
-			{% endif %}
-			<p class="footer__copyright">{{ footer_text }}
-				<br> {% if (footer_copyright) %} <br> {{ footer_copyright }} {% endif %}
-			</p>
-		</div>
 		<div class="footer__nav">
 			<div class="row">
+				<div class="col-md-3 col-xl-4">
+					{% if (footer_t_logo or footer_logo) %}
+						{% if (footer_logo) %} 
+							<a class="footer__logo" {{ home == og_url ? '' : 'href="' ~ home ~'"' }}><img src="{{ footer_logo }}" title="{{ name }}" alt="{{ name }}"></a>
+						{% else %} 
+							<a class="footer__logo" {{ home == og_url ? '' : 'href="' ~ home ~'"' }}>{{ text_logo }}</a>
+						{% endif %} 
+					{% endif %}
+						<p class="footer__caption">{{ footer_text }}</p>
+					</div>
 				{% if (footer_navs is not empty) %}
 				{% for key,footer_nav in footer_navs %}
-				<div class="col-5 col-md-4 col-xl is-xl-visible">
+				<div class="col-5 col-md-3 col-xl">
 					{% if (footer_nav.language[language_id].name) %}
 					<strong class="footer__nav-title">{{ footer_nav.language[language_id].name }}</strong>
 					{% endif %}
@@ -206,7 +204,7 @@
 				</div>
 				{% endfor %}
 				{% endif %}
-				<div class="col-12 col-md-4 col-xl-auto">
+				<div class="col-12 col-md-3 col-xl-auto">
 					<div class="footer__support">
 						<strong class="footer__support-title">{{ text_prostore_support }}</strong>
 						{% if prostore_phones %}
@@ -380,9 +378,9 @@
 				<div class="col-xl-3">
 					<div class="footer__support">
 						<div class="row">
-							<div class="col-xl-auto">
+<!-- 							<div class="col-xl-auto">
 								<span class="footer__support-title">{{ text_prostore_support }}</span>
-							</div>
+							</div> -->
 							<div class="col-xl">
 								{% if prostore_phones %}
 								<ul class="footer__support-phones">

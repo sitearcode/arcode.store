@@ -11,7 +11,7 @@
 				<div class="col-md">
 					<span class="h2 blog-featured__title">{{ heading_title }}</span>
 				</div>
-				{% if blog_href %}
+{# 				{% if blog_href %}
 				<div class="col-md-auto is-md-visible">
 					<div class="blog-featured__all">
 						<a class="ui-link ui-link--blue" href="{{ blog_href }}">{{ text_all_blogs }}<svg class="icon-arrow-link"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-arrow-link"></use>
@@ -19,25 +19,68 @@
 						</a>
 					</div>
 				</div>
-				{% endif %}
+				{% endif %} #}
 			{% endif %}
 		</div>
-		<div class="blog-featured__swiper">
-			<div class="swiper-container swiper-blog js-swiper-blog">
-				<div class="swiper-wrapper">
-					{% for i,blog in blogs %}
-					<div class="swiper-slide">
-						<a class="blog-featured__item" href="{{ blog.href }}">
-							<div class="blog-featured__item-image">
-								<img src="{{ blog.image }}" alt="{{ blog.title }}" width="{{ width }}" height="{{ height }}" {% if lazyload %}loading="lazy"{% endif %}>
+		<div class="blog-list">
+			<div class="row">
+				{% for i,blog in blogs %}
+					<div class="col-12 col-md-4">
+						<div class="blog-list__item">
+							<div>
+								<a href="{{ blog.href }}">
+									<div class="blog-list__item-image">
+										<img src="{{ blog.image }}" alt="{{ blog.title }}" {% if lazyload %}loading="lazy"{% endif %}>
+									</div>
+								</a>
+									<a href="{{ blog.href }}" class="h3 blog-list__item-title">
+										{{ blog.title }}
+									</a>
 							</div>
-							<span class="h3 blog-featured__item-title">
-								<u>{{ blog.title }}</u>
-							</span>
-							<span class="blog-featured__item-date">{{ blog.date_added }}</span>
-						</a>
+							<div class="blog-list__info">
+									<div class="blog-list__item-viewed">
+										<svg width="23" height="9" viewBox="0 0 23 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<mask id="path-1-inside-1_254_3180" fill="white">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M22.202 4.49993C19.3316 7.28517 15.4165 8.99986 11.1009 8.99986C6.78539 8.99986 2.87032 7.28517 -0.000146877 4.49993C2.87032 1.71469 6.78539 0 11.1009 0C15.4165 0 19.3316 1.71469 22.202 4.49993Z"/>
+											</mask>
+											<path d="M22.202 4.49993L22.8984 5.21761L23.638 4.49993L22.8984 3.78225L22.202 4.49993ZM-0.000146877 4.49993L-0.69652 3.78225L-1.43616 4.49993L-0.69652 5.21761L-0.000146877 4.49993ZM21.5057 3.78225C18.8143 6.39375 15.1462 7.99986 11.1009 7.99986V9.99986C15.6868 9.99986 19.8489 8.1766 22.8984 5.21761L21.5057 3.78225ZM11.1009 7.99986C7.0557 7.99986 3.38763 6.39375 0.696227 3.78225L-0.69652 5.21761C2.353 8.1766 6.51507 9.99986 11.1009 9.99986V7.99986ZM0.696227 5.21761C3.38763 2.60611 7.0557 1 11.1009 1V-1C6.51507 -1 2.353 0.82326 -0.69652 3.78225L0.696227 5.21761ZM11.1009 1C15.1462 1 18.8143 2.60611 21.5057 5.21761L22.8984 3.78225C19.8489 0.82326 15.6868 -1 11.1009 -1V1Z" fill="black" mask="url(#path-1-inside-1_254_3180)"/>
+											</svg>
+											
+											<span>{{ blog.viewed}}</span>
+									</div>	
+									<div class="blog-list__item-date">
+										<svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M2.20215 1C2.20215 1.55228 1.75443 2 1.20215 2C0.649864 2 0.202148 1.55228 0.202148 1C0.202148 0.447715 0.649864 0 1.20215 0C1.75443 0 2.20215 0.447715 2.20215 1Z" fill="black"/>
+											<path d="M2.20215 7C2.20215 7.55228 1.75443 8 1.20215 8C0.649864 8 0.202148 7.55228 0.202148 7C0.202148 6.44772 0.649864 6 1.20215 6C1.75443 6 2.20215 6.44772 2.20215 7Z" fill="black"/>
+											<path d="M2.20215 10C2.20215 10.5523 1.75443 11 1.20215 11C0.649864 11 0.202148 10.5523 0.202148 10C0.202148 9.44771 0.649864 9 1.20215 9C1.75443 9 2.20215 9.44771 2.20215 10Z" fill="black"/>
+											<path d="M2.20215 4C2.20215 4.55228 1.75443 5 1.20215 5C0.649864 5 0.202148 4.55228 0.202148 4C0.202148 3.44772 0.649864 3 1.20215 3C1.75443 3 2.20215 3.44772 2.20215 4Z" fill="black"/>
+											<path d="M5.20215 1C5.20215 1.55228 4.75443 2 4.20215 2C3.64986 2 3.20215 1.55228 3.20215 1C3.20215 0.447715 3.64986 0 4.20215 0C4.75443 0 5.20215 0.447715 5.20215 1Z" fill="black"/>
+											<path d="M5.20215 7C5.20215 7.55228 4.75443 8 4.20215 8C3.64986 8 3.20215 7.55228 3.20215 7C3.20215 6.44772 3.64986 6 4.20215 6C4.75443 6 5.20215 6.44772 5.20215 7Z" fill="black"/>
+											<path d="M5.20215 10C5.20215 10.5523 4.75443 11 4.20215 11C3.64986 11 3.20215 10.5523 3.20215 10C3.20215 9.44771 3.64986 9 4.20215 9C4.75443 9 5.20215 9.44771 5.20215 10Z" fill="black"/>
+											<path d="M5.20215 4C5.20215 4.55228 4.75443 5 4.20215 5C3.64986 5 3.20215 4.55228 3.20215 4C3.20215 3.44772 3.64986 3 4.20215 3C4.75443 3 5.20215 3.44772 5.20215 4Z" fill="black"/>
+											<path d="M8.20215 1C8.20215 1.55228 7.75443 2 7.20215 2C6.64986 2 6.20215 1.55228 6.20215 1C6.20215 0.447715 6.64986 0 7.20215 0C7.75443 0 8.20215 0.447715 8.20215 1Z" fill="black"/>
+											<path d="M8.20215 7C8.20215 7.55228 7.75443 8 7.20215 8C6.64986 8 6.20215 7.55228 6.20215 7C6.20215 6.44772 6.64986 6 7.20215 6C7.75443 6 8.20215 6.44772 8.20215 7Z" fill="black"/>
+											<path d="M8.20215 10C8.20215 10.5523 7.75443 11 7.20215 11C6.64986 11 6.20215 10.5523 6.20215 10C6.20215 9.44771 6.64986 9 7.20215 9C7.75443 9 8.20215 9.44771 8.20215 10Z" fill="black"/>
+											<path d="M8.20215 4C8.20215 4.55228 7.75443 5 7.20215 5C6.64986 5 6.20215 4.55228 6.20215 4C6.20215 3.44772 6.64986 3 7.20215 3C7.75443 3 8.20215 3.44772 8.20215 4Z" fill="black"/>
+											<path d="M11.2021 1C11.2021 1.55228 10.7544 2 10.2021 2C9.64986 2 9.20215 1.55228 9.20215 1C9.20215 0.447715 9.64986 0 10.2021 0C10.7544 0 11.2021 0.447715 11.2021 1Z" fill="black"/>
+											<path d="M11.2021 7C11.2021 7.55228 10.7544 8 10.2021 8C9.64986 8 9.20215 7.55228 9.20215 7C9.20215 6.44772 9.64986 6 10.2021 6C10.7544 6 11.2021 6.44772 11.2021 7Z" fill="black"/>
+											<path d="M11.2021 4C11.2021 4.55228 10.7544 5 10.2021 5C9.64986 5 9.20215 4.55228 9.20215 4C9.20215 3.44772 9.64986 3 10.2021 3C10.7544 3 11.2021 3.44772 11.2021 4Z" fill="black"/>
+											</svg>
+											<span>{{ blog.date_added}}</span>
+									</div>	
+								</div>
+							</div>
+						</div>
+				{% endfor %}
+			</div>
+			<div class="row">
+				<div class="col-auto">
+					<div class="all-article">
+						<svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M4 4L9 9L4 14" stroke="#000" stroke-linecap="round"/>
+							</svg>
+							<a href="{{ blog_href }}">Смотреть все статьи</a>
 					</div>
-					{% endfor %}
 				</div>
 			</div>
 		</div>

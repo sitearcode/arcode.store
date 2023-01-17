@@ -59,6 +59,7 @@ class ControllerExtensionModuleProstoreBlogMod extends Controller {
 
 		foreach ($results as $result) {
 
+
 			if ($result['image_preview']) {
 				$image = $this->model_tool_image->resize($result['image_preview'], $settings['width'], $settings['height']);
 			} elseif ($result['image']) {
@@ -70,6 +71,7 @@ class ControllerExtensionModuleProstoreBlogMod extends Controller {
 			$data['blogs'][] = array(
 				'title' => $result['title'],
 				'image'       => $image,
+				'viewed' => $result['viewed'],
 				'date_added' => $this->rus_date("j F, Y ", strtotime($result['date_added'])),
 				'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 120) . '...',
 				'href'  => $this->url->link('extension/module/prostore_blog/getblog', 'blog_id=' . $result['blog_id'])
