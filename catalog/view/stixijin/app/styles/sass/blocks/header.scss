@@ -243,7 +243,7 @@ a, button, p{
 	margin-left: 0;
 	margin-top: 96px;
 	@media (min-width: 768px) {
-		margin-top: 164px;
+		margin-top: 204px;
 		margin-left: 40px;
 		
 	}
@@ -272,3 +272,47 @@ a, button, p{
 .intro .row .col-xl-4 .is-xl-visible {
 	display: none !important;
 }
+
+.header__acc {
+	display: none;
+}
+
+.header__cart {
+	display: none;
+}
+
+@media (min-width: 1200px) {
+	.is-header-v4 .header__row--02 {
+    padding-top: 32px;
+}
+}
+
+.priority-nav > ul > li {
+	padding-right: 56px;
+}
+
+.header__nav-menu {
+	margin-left: 110px;
+}
+
+.is-header-v4 .header__logo {
+	margin: 0;
+}
+
+.header__nav-link {
+	@media (min-width: 1200px) {
+		border-bottom: 1px solid transparent;
+		padding: 24px 4px;
+		margin-top: 4px;
+		transition: $transition;
+	}
+}
+
+.header__nav-link:hover {
+	@media (min-width: 1200px) {
+		border-bottom: 1px solid #000;
+		padding: 24px 4px;
+		margin-top: 4px;
+	}
+}
+

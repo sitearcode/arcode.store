@@ -10,7 +10,7 @@
 						{% for banner in banner1 %}
 						{% if (banner['position'] == 1) %}
 							<div class="swiper-slide" >
-								{% if img_link %}<a href="{{ banner['link'] }}" style="background: url('{{banner['image']}}') no-repeat; background-size: cover; background-position: bottom;" class="intro__item">{% else %}<div class="intro__item">{% endif %}
+								{% if img_link %}<a href="{{ banner['link'] }}" style="background: url('{{banner['image']}}') no-repeat; background-size: cover; background-position: 100% 85%;" class="intro__item">{% else %}<div class="intro__item">{% endif %}
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-12">
