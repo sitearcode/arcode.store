@@ -4,7 +4,6 @@
 	<!-- Breadcrumbs :: Start-->
 	<div class="breadcrumbs">
 	  <div class="container-fluid">
-		<h1 class="breadcrumbs__title">{{ heading_title }}</h1>
 		<small class="breadcrumbs__counter">{{ product_num }}</small>
 		<ul class="breadcrumbs__menu">
 		{% for i,breadcrumb in breadcrumbs %}
@@ -111,7 +110,7 @@
 					</div>
 				</div>
 				{% endif %}
-				<div class="sku__view js-sku-view">
+				<div class="">
 					<div class="sku__view-head">
 						<button class="sku__view-back" data-fancybox-close>
 							<svg class="icon-arrow-back"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-arrow-back"></use>
@@ -263,12 +262,15 @@
 											<span class="sku__brand-text">{{ text_manufacturer|replace({':' : ''}) }}</span>
 										</div>
 										{% endif %}
+										<h1 class="breadcrumbs__title">{{ heading_title }}</h1>
 										{% if price %}
 											<p class="sku__price {% if buy_btn %}sku__price--disabled{% endif %}">
 												{% if special %}
 												<ins class="sku__price-ins">{{ special }}</ins>
 												<del class="sku__price-del">{{ price }}</del>
 												<span class="sku__price-economy">{{ text_prostore_economy }} {{ economy }}</span>
+												{% elseif price == 0%}
+												{{ price_on_request }}
 												{% else %}
 												{{ price }}
 												{% endif %}
@@ -338,7 +340,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="sku__group order-3 order-xl-1">
+<!-- 									<div class="sku__group order-3 order-xl-1">
 										<ul class="sku__addto">
 											<li>
 												<button type="button" class="sku__addto-btn {% if wish_data.is_in_wish %}is-active{% endif %}" title="{{ button_wishlist }}" data-action="wishlist" data-for="{{ product_id }}">
@@ -363,7 +365,7 @@
 												</button>
 											</li>
 										</ul>
-									</div>
+									</div> -->
 									{% if (options or recurrings or (customTabs.popup is defined)) %}
 									<div class="sku__group sku__group--options {% if isRequired %}order-xl-1{% else %}order-4 order-xl-4{% endif %}">
 										<div class="sku__settings">
@@ -546,19 +548,35 @@
 										</div>
 									</div>
 									{% endif %}
-									{% if attribute_groups %}
+									{% if attribute_groups %}	
 									<div class="sku__group order-5 order-xl-5">
 										<div class="sku__details">
 											<strong class="sku__details-title">{{tab_attribute}}</strong>
 											<table class="sku__details-table">
-												{% for attributes_row in attributes %}
-												<tr>
-													{% for attribute in attributes_row %}
-													<td>
-														<small>{{attribute.name}}</small>{{attribute.text}}
-													</td>
-													{% endfor %}
-												</tr>
+												{% for key, attribute_group in attribute_groups %}
+												<div class="atribute-group">
+													<div class="row">
+													<div class="col-12 col-md-3">
+														<div class="atribute-group__name">
+															{{ attribute_group.name }}
+														</div>
+													</div>
+														<div class="col-12 col-md-9">
+															<div class="row">
+																{% for key,attributes in attribute_group %}
+																	{% for key,attribute in attributes %}
+																	<div class="col-4">
+																		<div class="atribute">
+																			<div class="atribute__name">{{ attribute.name }}</div>
+																			<div class="atribute__value">{{ attribute.text }}</div>
+																		</div>
+																	</div>
+																	{% endfor %}
+																{% endfor %}
+															</div>
+														</div>
+												</div>
+												</div>
 												{% endfor %}
 											</table>
 											<div class="sku__details-action">
@@ -580,7 +598,7 @@
 									</div>
 									{% endif %}
 									{% if (short_descr and shortdescription) %}
-									<div class="sku__group order-7 order-xl-7">
+									<div class="sku__group order-4 order-xl-7">
 										<div class="sku__details">
 											<strong class="sku__delivery-title">{{ text_prostore_short_descr }}</strong>
 											<div class="sku__details-shortdescription">{{ shortdescription }}</div>
@@ -604,6 +622,9 @@
 									</div>
 									{% endif %}
 								</div>
+									<div class="product-page__callback">
+										<a class="product__callback" href="#callback-footer" data-fancybox="">{{ text_header_callback }}</a>
+									</div>
 							</div>
 						</div>
 					</div>
@@ -659,7 +680,7 @@
 						{% endif %}
 						{% if attribute_groups %}
 						<li>
-							<button class="details__control-btn" data-tabs-btn="specifications">{{ tab_attribute }}</button>
+							<button class="details__control-btn" data-tabs-btn="specifications">{{ tab_specification }}</button>
 						</li>
 						{% endif %}
 						{% if review_status %}
@@ -667,13 +688,21 @@
 							<button class="details__control-btn" data-tabs-btn="reviews">{{ text_prostore_review }} <span class="details__control-counter">{{ reviews_num }}</span>
 							</button>
 						</li>
+						<li>
+							<button class="details__control-btn" data-tabs-btn="delivery">{{ tab_delivery }}
+							</button>
+						</li>
+						<li>
+							<button class="details__control-btn" data-tabs-btn="pay">{{ tab_pay }}
+							</button>
+						</li>
 						{% endif %}
-						{% if faq_status %}
+<!-- 						{% if faq_status %}
 						<li>
 							<button class="details__control-btn" data-tabs-btn="faq">{{ text_prostore_faq }} <span class="details__control-counter">{{ faq_total }}</span>
 							</button>
 						</li>
-						{% endif %}
+						{% endif %} -->
 						{% if (customTabs.tab is defined) %}
 						{% for i,tab in customTabs.tab %}
 						<li>
@@ -687,6 +716,8 @@
 						
 				<div class="details__wrapper">
 				{% if product_in_tab %}<div class="details__tabs">{% endif %}
+
+
 
 					{% if description %}
 						{% if product_in_tab %}

@@ -4,7 +4,7 @@ $_['heading_title']          = 'Blog module';
 $_['heading_title_cloud']    = 'Tags';
 $_['heading_title_cat']      = 'Categories';
 $_['text_all_blogs']         = 'Entire blog';
-$_['text_all_blogs_1'] = 'show all';
+$_['text_all_blogs_1'] = 'Show all';
 $_['heading_title_prod_cat'] = '%s is in our ';
 $_['text_all_blogs_prod_cat'] = 'blog';
 

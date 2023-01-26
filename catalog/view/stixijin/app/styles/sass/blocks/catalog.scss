@@ -13,7 +13,7 @@
 }
 
 .catalog #column-left {
-	display: none;
+	display: block;
 }
 
 .settings {
@@ -25,6 +25,11 @@
 
 .products__item-image {
 	height: auto;
+	padding: 0;
+}
+
+.products__item-image img {
+	width: 100%;
 }
 
 .products__item-status {
@@ -54,6 +59,7 @@
 }
 
 .products__item {
+	border: 1px solid #DEDEDE;
 	transition: border $transition;
 	border-radius: 0;
 }
@@ -71,4 +77,112 @@
 
 .products__item-topleft {
 	display: none;
+}
+
+.product__callback {
+	background: #000;
+	color: #fff !important;
+	text-decoration: none;
+	padding: 8px;
+	font-size: 10px;
+}
+
+.product__price-group {
+	display: flex;
+}
+
+.products__item-price {
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+.products__list--grid-3 > li, .products__list--grid-4 > li, .products__list--responsive.products__list--grid-3 > li, .products__list--responsive.products__list--grid-4 > li {
+	padding: 0;
+}
+
+.products__item-in {
+	padding: 18px;
+}
+
+.categories-aside__link {
+	background: #F2F2F2;
+	padding: 10px;
+}
+
+.categories-aside {
+	margin-bottom: 0px;
+	padding-left: 0;
+}
+
+.products-categories__item-image img {
+	width: 100%;
+	height: auto;
+}
+
+.products-categories__grid-4 > li {
+	max-width:15%;
+}
+
+.products-categories__item-image {
+	height: auto;
+}
+
+.products-categories__item-title {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.categories-aside__title, .panel-heading {
+	display: none;
+}
+
+.filter-aside {
+	padding-left: 0;
+}
+
+.catalog .col-xl-9 {
+	padding-left: 0;
+}
+
+#column-left {
+	padding-right: 0;
+}
+
+.categories-aside {
+	border-bottom: 1px solid #DEDEDE;
+}
+
+.ui-check__tag:hover {
+	color: #000;
+}
+
+.ui-check__tag {
+	background: #F2F2F2;
+}
+
+.ui-check__input:checked ~ .ui-check__tag {
+	background: #000;
+	color: #F2F2F2;
+}
+
+.products-categories__item {
+	transition: border $transition;
+	border: 1px solid transparent;
+	border-radius: 0;
+}
+
+.products-categories__item:hover {
+	border: 1px solid #000;
+	border-radius: 0;
+}
+
+.categories-aside {
+	border-radius: 0;
+}
+
+.products__item {
+	height: 100%;
 }

@@ -28,6 +28,28 @@
 		</ul>
 	  </div>
 	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="products-categories">
+					<ul class="products-categories__grid products-categories__grid-{{ category_categories }}">
+						{% for category in categories %}
+						<li>
+							<a class="products-categories__item" href="{{ category['href'] }}">
+								{% if (category['thumb']) %}
+								<div class="products-categories__item-image">
+									<img src="{{ category['thumb'] }}" alt="{{ category['name'] }}" width="{{ image_category_width }}" height="{{ image_category_height }}">
+								</div>
+								{% endif %}
+								<span class="h2 products-categories__item-title">{{ category['name'] }}</span>
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div><!-- Products categories :: End-->
+			</div>
+		</div>
+	</div>
 	<!-- Breadcrumbs :: End-->
 	<!-- Catalog :: Start-->
 	<div class="catalog">
@@ -38,22 +60,6 @@
 		<div class="col-xl-{{ col }}">
 			{% if category_categories and categories %}
 			<!-- Products categories :: Start-->
-			<div class="products-categories">
-				<ul class="products-categories__grid products-categories__grid-{{ category_categories }}">
-					{% for category in categories %}
-					<li>
-						<a class="products-categories__item" href="{{ category['href'] }}">
-							{% if (category['thumb']) %}
-							<div class="products-categories__item-image">
-								<img src="{{ category['thumb'] }}" alt="{{ category['name'] }}" width="{{ image_category_width }}" height="{{ image_category_height }}">
-							</div>
-							{% endif %}
-							<span class="h2 products-categories__item-title">{{ category['name'] }}</span>
-						</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</div><!-- Products categories :: End-->
 			{% endif %}
 			<div class="catalog__content">
 				{% if products %}

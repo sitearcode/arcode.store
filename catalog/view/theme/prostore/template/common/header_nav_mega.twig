@@ -27,7 +27,7 @@
 		</a>
 		<div class="{% if header_class %}header__nav{% else %}header__tags{% endif %}-offcanvas {% if header_class %}header__nav{% else %}header__tags{% endif %}-offcanvas--fullwidth {% if element.content is not empty %}{% if header_class %}header__nav{% else %}header__tags{% endif %}-offcanvas--w1142{% endif %}">
 			<div class="row">
-				<div class="{% if element.content is not empty %}col-8{% else %}col-12{% endif %}">
+				<div class="col-12">
 					{% if main_navs[number].type[0].cattoview.main_toplinks is not empty %}
 					<ul class="header__catalog-quick">
 						{% for toplink in main_navs[number].type[0].cattoview.main_toplinks %}
@@ -40,11 +40,14 @@
 					<div class="row"> 
 						{% for categories in main_navs[number].type[0].cattoview[cat_id].columns %}
 						{% set width = main_navs[number].type[0].cattoview[cat_id].width %}
-						<div class="col-4" style="-ms-flex: 0 0 {{ width }}%;flex: 0 0 {{ width }}%;max-width: {{ width }}%;">
+						<div class="col-12">
+							<div class="row">	
 							{% for category in categories %}
+							<div class="col-4">
 								<span class="header__catalog-title">
 									<a class="header__catalog-link" href="{{ category.href }}">{{ category.name }}</a>
-								</span>                
+								</span>     
+							</div>           
 								{% if (category.children) %}
 									<ul class="header__catalog-menu">
 										{% for category3 in category.children|slice(0, max_subcat) %}
@@ -61,6 +64,7 @@
 								{% endif %}
 
 							{% endfor %}
+						</div>
 						</div>
 						{% endfor %}
 					</div>
@@ -84,7 +88,7 @@
 					{% endif %}
 				</div>
 				{% if element.content is not empty %}
-				<div class="col-4">
+				<div class="col-12">
 					<div class="header__additional">
 						<strong class="header__additional-title">{{ main_navs[number].addelem.name[language_id] }}</strong>
 						{% if element.settype == 0 %}
@@ -144,10 +148,6 @@
 										<span class="products__item-status {% if (product.quantity > 0) %}products__item-status--true{% else %}products__item-status--false{% endif %}">{{ product.stock }}</span>
 										{% if product.manufacturer %}<span class="products__item-id">{{ product.manufacturer }}</span>{% endif %}
 										<a class="products__item-title" href="{{ product.href }}">{{ product.name }}</a>
-										{% if product.price %}
-										<p class="products__item-price">{% if product.special %}{% if product.sales and product.discount %}<mark>-{{ product.discount }}</mark>{% endif %}<ins>{{ product.special }} </ins><del>{{ product.price }}</del>{% else %}{{ product.price }}{% endif %}
-										</p>
-										{% endif %}
 										<div class="products__item-action">
 											<div class="ui-add-to-cart {% if product.isincart %}is-active{% endif %}">
 												<button type="button" class="ui-btn ui-btn--primary" onclick="{% if product.isincart %}window.location.href='{{cart_link}}';{% else %}cart.add('{{ product.product_id }}', '{{ product.minimum }}');{% endif %}" {% if product.buy_btn %}disabled{% endif %} data-add-to-cart="{{ text_prostore_in_cart }}">{% if product.isincart %}{{ text_prostore_in_cart }}{% else %}{{ button_cart }}{% endif %}<svg class="icon-cart"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-cart"></use>
@@ -221,7 +221,8 @@
 											{% endif %}
 											<a class="products__item-title" href="{{ product.href }}">{{ product.name }}</a>
 											{% if product.price %}
-											<p class="products__item-price">{% if (product.special) %}<ins>{{ product.special }} </ins><del>{{ product.price }}</del>{% else %}{{ product.price }}{% endif %}
+											<p class="products__item-price">{% if  product.price == 0%} Цена по запросу {% else %}{% if product.special %}{% if product.sales and product.discount %}<mark>-{{ product.discount }}</mark>{% endif %}<ins>{{ product.special }} </ins><del>{{ product.price }}</del>{% else %}{{ product.price }}{% endif %}{% endif %}
+											</p>
 											</p>
 											{% endif %}
 										</div>

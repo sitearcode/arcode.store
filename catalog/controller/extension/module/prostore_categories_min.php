@@ -3,6 +3,7 @@ class ControllerExtensionModuleProstoreCategoriesMin extends Controller {
 	public function index($setting) {
 		static $module = 0;		
 
+		$this->load->language('extension/module/prostore_categories_min');
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 		$this->load->model('catalog/category');

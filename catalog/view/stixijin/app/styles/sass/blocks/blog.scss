@@ -73,3 +73,14 @@
 	margin-top: 0px;
 }
 
+.blog__item-title {
+	color: #fff !important;
+	text-decoration: none;
+}
+
+.blog__item-title {
+	color: #000 !important;
+	@media (min-width: 1200px) {
+		color: #fff !important;
+	}
+}

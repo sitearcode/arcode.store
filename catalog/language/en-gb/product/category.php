@@ -22,3 +22,5 @@ $_['text_rating_desc']  = 'Rating (Highest)';
 $_['text_model_asc']    = 'Model (A - Z)';
 $_['text_model_desc']   = 'Model (Z - A)';
 $_['text_limit']        = 'Show:';
+$_['order_call']             = 'Order a call';
+$_['price_on_request']             = 'Price on request';

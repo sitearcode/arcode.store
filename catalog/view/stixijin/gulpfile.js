@@ -169,6 +169,6 @@ function startwatch() {
 export { scripts, styles, images }
 export let assets = series(scripts, styles, images)
 export let build = series(cleandist, images, scripts, styles, buildcopy)
-export let deploy = series(deployFiles, deployImages, deployStorage)
+export let deploy = series(deployFiles, deployImages)
 
 export default series(scripts, styles, images, parallel(browsersync, startwatch))

@@ -55,9 +55,17 @@
 				<span class="products__item-status {% if (product.quantity > 0) %}products__item-status--true{% else %}products__item-status--false{% endif %}">{{ product.stock }}</span>
 				{% if product.manufacturer %}<span class="products__item-id">{{ product.manufacturer }}</span>{% endif %}
 				<a class="products__item-title" href="{{ product.href }}">{{ product.name }}</a>
-				{% if product.price %}
-				<p class="products__item-price">{% if product.special %}{% if product.sales and product.discount %}<mark>-{{ product.discount }}</mark>{% endif %}<ins>{{ product.special }} </ins><del>{{ product.price }}</del>{% else %}{{ product.price }}{% endif %}
-				</p>
+				{% if product.price == 0 %}
+				<div class="product__price-group">
+					<p class="products__item-price">{{price_on_request}}</p>
+					<a class="product__callback" href="#callback-footer" data-fancybox="">{{order_call}}</a>
+				</div>
+				{% else %}
+				<div class="product__price-group">
+					<p class="products__item-price">{% if product.special %}{% if product.sales and product.discount %}<mark>-{{ product.discount }}</mark>{% endif %}<ins>{{ product.special }} </ins><del>{{ product.price }}</del>{% else %}{{ product.price }}{% endif %}
+					</p>
+					<a class="product__callback" href="#callback-footer" data-fancybox="">{{order_call}}</a>
+				</div>
 				{% endif %}
 				{% if (category_time and product.special and product.special_date_end) %}
 				<div class="products__item-discount">

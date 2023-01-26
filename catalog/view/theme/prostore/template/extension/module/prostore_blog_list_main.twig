@@ -28,11 +28,11 @@
 						{{ empty_category }}
 						{% set s = 1 %} 
 						{% for blog in blogs %} 
-						<li {% if s == 1 %}class="is-fullwidth"{% endif %}>
+						<li class="is-fullwidth">
 							<div class="blog__item">
 								<div class="blog__item-wrapper">
 									<a class="blog__item-image" href="{{ blog.href }}">
-										<img src="{{ s == 1 ? blog.image_3x : blog.image }}" alt="{{ blog.title }}">
+										<img src="{{ blog.image_3x}}" alt="{{ blog.title }}">
 									</a>									
 									<ul class="blog__item-tags">
 										{% for blogtag in blog.blogtags %} 
@@ -56,20 +56,17 @@
 											</span>
 										</li>
 										{% endif %}
-										{% if s == 1 %}
 										<li>
 											<span class="blog__item-info-item">
 												<svg class="icon-dot" style="margin: 0 2.5rem 0 0;"><use xlink:href="catalog/view/theme/prostore/sprites/sprite.svg#icon-dot"></use>
 												</svg>{{ blog.date_added }}
 											</span>
 										</li>
-										{% endif %}
 									</ul>
 								</div>
 								<a class="h2 blog__item-title" href="{{ blog.href }}">
 									<u>{{ blog.title }}</u>
 								</a>
-								{% if s != 1 %}<span class="blog__item-date">{{ blog.date_added }}</span>{% endif %}
 							</div>
 						</li>
 						{% set s = s + 1 %} 

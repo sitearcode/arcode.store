@@ -4,7 +4,7 @@ $_['heading_title']          = 'Модуль Блога';
 $_['heading_title_cloud']          = 'Теги';
 $_['heading_title_cat']          = 'Категории';
 $_['text_all_blogs']        = 'Весь блог';
-$_['text_all_blogs_1']        = 'показать все';
+$_['text_all_blogs_1']        = 'Смотреть все статьи';
 $_['heading_title_prod_cat']       = '%s у нас в ';
 $_['text_all_blogs_prod_cat']        = 'блоге';
 

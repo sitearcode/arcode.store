@@ -97,12 +97,10 @@
 		<!-- MAIN NAV Horizontal  -->
 		<nav class="header__nav header__priority" data-text-more="{{ text_nav_more }}">
 			<ul class="header__nav-menu">
-			  {% for key,main_nav in main_navs %} 
-
+			  {% for key,main_nav in main_navs %}
 				  {% if (main_nav.view is defined) %} 
 					{{ main_nav.view }}
 				  {% endif %}
-
 			  {% endfor %}
 			</ul>
 		</nav>

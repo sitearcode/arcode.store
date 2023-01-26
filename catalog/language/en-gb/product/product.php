@@ -43,8 +43,13 @@ $_['entry_bad']                = 'Bad';
 $_['tab_description']          = 'Description';
 $_['tab_attribute']            = 'Specification';
 $_['tab_review']               = 'Reviews (%s)';
+$_['tab_specification']               = 'Specification';
+$_['tab_delivery']               = 'Delivery';
+$_['tab_pay']               = 'Payment';
 
 // Error
 $_['error_name']               = 'Warning: Review Name must be between 3 and 25 characters!';
 $_['error_text']               = 'Warning: Review Text must be between 25 and 1000 characters!';
 $_['error_rating']             = 'Warning: Please select a review rating!';
+
+$_['price_on_request']             = 'Price on request';
