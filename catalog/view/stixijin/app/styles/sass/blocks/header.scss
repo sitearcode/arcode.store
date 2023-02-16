@@ -422,3 +422,33 @@ a, button, p{
 .header__catalog-title {
 	margin-bottom: 16px !important;
 }
+
+.header__email, .header__call-link {
+	transition: $transition !important;
+}
+
+.header__email a:hover {
+	color: $accent !important;
+}
+
+.header__call-link a:hover {
+	color: $accent !important;
+}
+
+.intro__item-price p {
+	transition: $transition;
+}
+
+.intro__item-price:hover p {
+	color: #000 !important;
+}
+
+.intro__item-price:hover svg {
+	stroke: #000;
+}
+
+
+.intro__item-price svg {
+	stroke: $accent;
+	transition: $transition;
+}

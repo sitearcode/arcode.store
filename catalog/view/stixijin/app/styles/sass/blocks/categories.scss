@@ -1,12 +1,36 @@
 .c__item {
-	background: #F9F9F9;
-	display: block;
+	background-color: #f9f9f9;
+	min-height: 240px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	border: 1px solid transparent;
 	transition: $transition;
+	@media (min-width: 768px) {
+		min-height: 360px;
+	}
 }
 
 .c__item:hover {
 	border: 1px solid #000000;
+	background-size: 110% !important;
+}
+
+.c-item__arrow {
+	transition: $transition;
+	stroke: #000;
+}
+
+.c__item-button {
+	transition: $transition;
+}
+
+.c__item:hover .c__item-button {
+	color: $accent;
+}
+
+.c__item:hover .c-item__arrow  {
+	stroke: $accent;
 }
 
 .c__item {
@@ -43,3 +67,4 @@
 .main .products-categories__grid-4>li {
 	max-width: 25%;
 }
+

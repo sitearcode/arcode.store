@@ -5,13 +5,14 @@
 		<div class="row">
 			{% for i,banner1 in banners %}
 			{% for banner in banner1 %}
-				<div class="co-12 col-md-6">
-					<a href="{{ banner.link }}" class="c__item">
+				<div class="co-12 col-sm-6 col-md-6">
+					<a href="{{ banner.link }}" class="c__item" style="background-image: url({{ banner.image }}); 	background-repeat: no-repeat; background-position: center; background-size: 100%;" {% if lazyload %}loading="lazy"{% endif %}>
 						<span class="c__item-title">{{ banner.title }}</span>
-
-						<img class="c-item__img" src="{{ banner.image }}" alt="{{ category.name }}" {% if lazyload %}loading="lazy"{% endif %}>
-
-						<svg class="c-item__arrow" width="13" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m4 4 5 5-5 5" stroke="#000" stroke-linecap="round"/></svg><span class="c__item-more">{{text_more}}</span>
+						<div class="c__item-button">
+							<svg class="c-item__arrow" width="13" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="m4 4 5 5-5 5"  stroke-linecap="round"/></svg>
+								<span class="c__item-more">{{text_more}}</span>
+						</div>
 					</a>
 				</div>
 			{% endfor %}
